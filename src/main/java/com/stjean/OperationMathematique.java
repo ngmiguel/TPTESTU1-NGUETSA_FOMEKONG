@@ -12,4 +12,17 @@ public class OperationMathematique {
         }
         return result;
     }
+    public int[] trier(int[] listes) {
+        int[] resultat = listes.clone();
+        for (int i = 0; i < resultat.length - 1; i++) {
+            for (int j = i + 1; j < resultat.length; j++) {
+                if (resultat[i] < resultat[j]) {
+                    int temp = resultat[i];
+                    resultat[i] = resultat[j];
+                    resultat[j] = temp;
+                }
+            }
+        }
+        return resultat;
+    }
 }
