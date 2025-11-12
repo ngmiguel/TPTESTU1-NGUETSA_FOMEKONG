@@ -30,4 +30,10 @@ public class TestOperationMathematique {
         assertEquals(1, resultat[3]);
         assertEquals(1, resultat[4]);
     }
+
+    @Test(expected = IllegalParamISIException.class)
+    public void testFactorielNegatif() throws IllegalParamISIException {
+        OperationMathematique op = new OperationMathematique();
+        op.factoriel(-1);
+    }
 }
