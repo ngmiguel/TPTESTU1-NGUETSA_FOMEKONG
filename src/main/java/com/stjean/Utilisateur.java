@@ -72,4 +72,16 @@ public class Utilisateur {
         }
         System.out.println("Utilisateur non trouvé");
     }
+
+    class EmailInvalidException extends Exception {
+        public EmailInvalidException(String message) {
+            super(message);
+        }
+    }
+
+    class SuppressionInvalidException extends Exception {
+        public SuppressionInvalidException(String message) {
+            super(message);
+        }
+    }
 }
