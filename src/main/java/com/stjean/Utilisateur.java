@@ -24,4 +24,52 @@ public class Utilisateur {
     }
 
     // Getters et setters (ajoute-les toi-même pour simplifier)
+
+
+    class EmailInvalidException extends Exception {
+        public EmailInvalidException(String message) {
+            super(message);
+        }
+    }
+
+    class SuppressionInvalidException extends Exception {
+        public SuppressionInvalidException(String message) {
+            super(message);
+        }
+    }
+
+    public static void ajouter(Utilisateur user) throws EmailInvalidException {
+        if (!user.email.contains("@") || !user.email.contains(".")) {
+            throw new EmailInvalidException("Email invalide");
+        }
+        users.add(user);
+    }
+
+    public static void supprimer(int id) throws SuppressionInvalidException {
+        boolean found = false;
+        for (Utilisateur u : users) {
+            if (u.id == id) {
+                users.remove(u);
+                found = true;
+                break;
+            }
+        }
+        if (!found) throw new SuppressionInvalidException("Utilisateur inexistant");
+    }
+
+    public static void lister() {
+        for (Utilisateur u : users) {
+            System.out.println(u.nom);
+        }
+    }
+
+    public static void afficher(int id) {
+        for (Utilisateur u : users) {
+            if (u.id == id) {
+                System.out.println(u.nom + " - " + u.soldePersonnel);
+                return;
+            }
+        }
+        System.out.println("Utilisateur non trouvé");
+    }
 }
