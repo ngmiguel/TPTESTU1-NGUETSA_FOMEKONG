@@ -84,4 +84,29 @@ public class Utilisateur {
             super(message);
         }
     }
+
+    public static double analyseSoldeGeneral() throws NegativeGeneralBalanceException {
+        double total = 0;
+        for (Utilisateur u : users) {
+            total += u.soldePersonnel;
+        }
+        if (total < 0) throw new NegativeGeneralBalanceException("Solde général négatif");
+        return total;
+    }
+
+    public static Utilisateur getRiche() {
+        Utilisateur riche = null;
+        for (Utilisateur u : users) {
+            if (riche == null || u.soldePersonnel > riche.soldePersonnel) {
+                riche = u;
+            }
+        }
+        return riche;
+    }
+
+    class NegativeGeneralBalanceException extends Exception {
+        public NegativeGeneralBalanceException(String message) {
+            super(message);
+        }
+    }
 }
