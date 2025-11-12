@@ -1,6 +1,10 @@
 package com.stjean;
 
+import java.util.ArrayList;
+
 public class Utilisateur {
+
+    public static ArrayList<Utilisateur> users = new ArrayList<>();
     private int id;
     private String nom;
     private int age;
