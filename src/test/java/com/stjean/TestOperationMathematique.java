@@ -36,4 +36,11 @@ public class TestOperationMathematique {
         OperationMathematique op = new OperationMathematique();
         op.factoriel(-1);
     }
+
+    @Test
+    public void testMaxNumba() {
+        OperationMathematique op = new OperationMathematique();
+        double[] valeurs = {1.5, 2.7, 0.3, 4.9};
+        assertEquals(4.9, op.maxNumba(valeurs), 0.01);
+    }
 }

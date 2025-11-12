@@ -25,4 +25,13 @@ public class OperationMathematique {
         }
         return resultat;
     }
+
+    public double maxNumba(double[] valeurs) {
+        if (valeurs.length == 0) return 0;
+        double max = valeurs[0];
+        for (double v : valeurs) {
+            if (v > max) max = v;
+        }
+        return max;
+    }
 }
